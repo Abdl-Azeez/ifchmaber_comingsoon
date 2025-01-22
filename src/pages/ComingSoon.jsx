@@ -65,7 +65,7 @@ const ComingSoon = () =>{
       </div>
 
       <a
-        href="https://chat.whatsapp.com/your-group-link"
+        href="https://wa.me/+971506985955"
         className="whatsapp-button"
         target="_blank"
         rel="noopener noreferrer"
