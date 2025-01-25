@@ -11,7 +11,7 @@ const ComingSoon = () =>{
   });
 
   useEffect(() => {
-    const targetDate = new Date('2025-04-01T00:00:00');
+    const targetDate = new Date('2025-03-01T00:00:00');
 
     const calculateTimeLeft = () => {
       const now = new Date();
@@ -61,11 +61,11 @@ const ComingSoon = () =>{
       </div>
 
       <div className="launch-date">
-        Launching April 1st, 2025
+        Launching 1st Ramadan 1445 | 1st March 2025
       </div>
 
       <a
-        href="https://wa.me/+971506985955"
+        href="https://chat.whatsapp.com/FJKIyU87hgq9tC3ob3DB7D"
         className="whatsapp-button"
         target="_blank"
         rel="noopener noreferrer"
