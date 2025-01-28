@@ -30,6 +30,11 @@ const ComingSoon = () => {
     return () => clearInterval(interval);
   }, []);
 
+  // Open links in a new tab
+  const openLink = (url) => {
+    window.open(url, "_blank", "noopener,noreferrer");
+  };
+
   return (
     <div className="coming-soon-container">
       {/* Left Section */}
@@ -52,9 +57,9 @@ const ComingSoon = () => {
           <div className="notification-section">
             <p>Get notified when we go live!</p>
             <button
-              href="https://chat.whatsapp.com/FJKIyU87hgq9tC3ob3DB7D"
-              target="_blank"
-              rel="noreferrer"
+              onClick={() =>
+                openLink("https://chat.whatsapp.com/FJKIyU87hgq9tC3ob3DB7D")
+              }
             >
               Join Our WhatsApp Community
             </button>
@@ -63,16 +68,16 @@ const ComingSoon = () => {
         <div className="contact-section">
           <p>Follow us on</p>
           <div className="social-icons">
-            <button>
+            <button onClick={() => openLink("https://facebook.com")}>
               <Facebook size={24} />
             </button>
-            <button>
+            <button onClick={() => openLink("https://twitter.com")}>
               <Twitter size={24} />
             </button>
             <button
-              href="https://my.linkedin.com/company/ifchamber"
-              target="_blank"
-              rel="noopener noreferrer"
+              onClick={() =>
+                openLink("https://my.linkedin.com/company/ifchamber")
+              }
             >
               <Linkedin size={24} />
             </button>
