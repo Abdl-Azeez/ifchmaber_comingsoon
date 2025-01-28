@@ -1,80 +1,105 @@
-import React, { useState, useEffect } from 'react';
-import { Timer, MessageCircle } from 'lucide-react';
+import React, { useState, useEffect } from "react";
+import { Facebook, Twitter, Linkedin } from "lucide-react";
 import "./ComingSoon.css";
+import IFChamberLogo from "../assets/IFChamber-logo.png";
+import BGClock from "../assets/bg-clock.png";
 
-const ComingSoon = () =>{
-  const [timeLeft, setTimeLeft] = useState({
-    days: 0,
-    hours: 0,
-    minutes: 0,
-    seconds: 0,
-  });
+const ComingSoon = () => {
+  const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0 });
 
   useEffect(() => {
-    const targetDate = new Date('2025-03-01T00:00:00');
+    const targetDate = new Date("2025-03-01T00:00:00Z");
 
-    const calculateTimeLeft = () => {
+    const updateCountdown = () => {
       const now = new Date();
-      const difference = targetDate.getTime() - now.getTime();
+      const difference = targetDate - now;
 
       if (difference > 0) {
         setTimeLeft({
           days: Math.floor(difference / (1000 * 60 * 60 * 24)),
           hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
-          minutes: Math.floor((difference / 1000 / 60) % 60),
-          seconds: Math.floor((difference / 1000) % 60),
+          minutes: Math.floor((difference / (1000 * 60)) % 60),
         });
+      } else {
+        setTimeLeft({ days: 0, hours: 0, minutes: 0 });
       }
     };
 
-    calculateTimeLeft();
-    const timer = setInterval(calculateTimeLeft, 1000);
-
-    return () => clearInterval(timer);
+    updateCountdown();
+    const interval = setInterval(updateCountdown, 1000);
+    return () => clearInterval(interval);
   }, []);
-
-  const TimeUnit = ({ value, label }) => (
-    <div className="time-unit">
-      <div className="time-value">{value.toString().padStart(2, '0')}</div>
-      <div className="time-label">{label}</div>
-    </div>
-  );
 
   return (
     <div className="coming-soon-container">
-      <div className="logo-section">
-        <Timer className="logo-icon" size={48} />
-        <h1 className="title">Coming Soon</h1>
-      </div>
+      {/* Left Section */}
+      <div className="left-section">
+        <div className="logo-wrapper w-100 text-center">
+          <img
+            src={IFChamberLogo}
+            alt="IFChamber Logo"
+            className="ifchamber-logo"
+          />
+        </div>
+        <div>
+          <h1>We are coming soon.</h1>
+          <p>
+            The Islamic Finance Chamber (IFChamber) is a global community of
+            finance experts and enthusiasts leveraging Islamic Finance and
+            Economics to make the world better, one degree at a time.
+          </p>
 
-      <div className="content">
-        <p className="subtitle">
-          Something amazing is in the works. Stay tuned!
-        </p>
-
-        <div className="countdown">
-          <TimeUnit value={timeLeft.days} label="Days" />
-          <TimeUnit value={timeLeft.hours} label="Hours" />
-          <TimeUnit value={timeLeft.minutes} label="Minutes" />
-          <TimeUnit value={timeLeft.seconds} label="Seconds" />
+          <div className="notification-section">
+            <p>Get notified when we go live!</p>
+            <button
+              href="https://chat.whatsapp.com/FJKIyU87hgq9tC3ob3DB7D"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Join Our WhatsApp Community
+            </button>
+          </div>
+        </div>
+        <div className="contact-section">
+          <p>Follow us on</p>
+          <div className="social-icons">
+            <button>
+              <Facebook size={24} />
+            </button>
+            <button>
+              <Twitter size={24} />
+            </button>
+            <button
+              href="https://my.linkedin.com/company/ifchamber"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Linkedin size={24} />
+            </button>
+          </div>
+          <p className="copyright">
+            © Copyrights IFChamber | All Rights Reserved
+          </p>
         </div>
       </div>
 
-      <div className="launch-date">
-        Launching 1st Ramadan 1445 | 1st March 2025
+      {/* Right Section */}
+      <div className="right-section">
+        <div className="bg-dark-shade"></div>
+        <img src={BGClock} alt="Clock Background" className="bg-clock" />
+        <div className="arriving-in">Arriving in...</div>
+        <div className="countdown">
+          {["days", "hours", "minutes"].map((unit, index) => (
+            <div className="countdown-box" key={index}>
+              <p>{timeLeft[unit]}</p>
+              <hr />
+              <span>{unit}</span>
+            </div>
+          ))}
+        </div>
       </div>
-
-      <a
-        href="https://chat.whatsapp.com/FJKIyU87hgq9tC3ob3DB7D"
-        className="whatsapp-button"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <MessageCircle size={24} />
-        <span>Join our WhatsApp Community</span>
-      </a>
     </div>
   );
-}
+};
 
 export default ComingSoon;
