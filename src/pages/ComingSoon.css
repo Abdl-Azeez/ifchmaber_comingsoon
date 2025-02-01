@@ -1,3 +1,7 @@
+body {
+  font-family: 'Avenir', 'Helvetica Neue', Arial, sans-serif;
+}
+
 .coming-soon-container {
   display: flex;
   height: 100vh;
@@ -14,11 +18,16 @@
 .left-section {
   width: 35%;
   background-color: white;
+  padding-top: 2.8rem !important;
   padding: 0 2.5rem;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  /* justify-content: space-between; */
+  text-align: center;
   color: black;
+  position: relative;
+  height: 100%;
+  gap: 2rem;
 }
 
 @media (max-width: 768px) {
@@ -38,12 +47,13 @@
   font-size: 2.5rem;
   font-weight: bold;
   line-height: 3.375rem;
+  /* margin-top: 2rem; */
 }
 
 .left-section p {
-  margin-top: 1.25rem;
+  /* margin-top: 1.25rem; */
   color: #555;
-  text-align: justify;
+  /* text-align: justify; */
   width: 90%;
 }
 
@@ -54,13 +64,15 @@
 
 .notification-section button {
   margin-top: 0.625rem;
-  background-color: #007f3b;
-  color: white;
-  font-weight: bold;
-  padding: 0.625rem 1.25rem;
-  border: none;
-  border-radius: 0.313rem;
-  cursor: pointer;
+    background-color: #007f3b;
+    color: white;
+    font-weight: bold;
+    padding: 0.625rem 1.25rem;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    display: inline-flex;
+    gap: 0.5rem;
 }
 
 .notification-section button:hover {
@@ -73,6 +85,11 @@
   align-items: center;
   gap: 0.625rem;
 }
+.contact-section {
+  display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
 
 .social-icons {
   width: 40%;
@@ -83,17 +100,22 @@
   right: 2.5rem;
 }
 
-.social-icons button {
+.contact-section p{
+      width: auto;
+    margin: 0;
+}
+
+.contact-section button {
   color: #000;
   border: none !important;
   background: transparent;
 }
 
-.social-icons button:last-child:hover {
+.contact-section button:last-child:hover {
   color: #007f3b;
 }
 
-.social-icons button:not(:last-child) {
+.contact-section button:not(:last-child) {
   cursor: not-allowed;
 }
 
@@ -102,6 +124,8 @@
   color: #999;
   font-size: 0.875rem;
   text-align: center !important;
+  position: absolute;
+  bottom: 0;
 }
 
 .right-section {
