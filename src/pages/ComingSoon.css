@@ -176,6 +176,10 @@ body {
     font-size: 2rem;
     display: none;
   }
+
+  .copyright{
+    display: none;
+  }
 }
 
 .countdown {
@@ -226,8 +230,8 @@ body {
 /* Mobile Styles */
 @media (max-width: 768px) {
   .countdown-box {
-    width: 7.5rem;
-    padding: 1rem;
+    width: 5.5rem;
+    padding: 0.5rem;
   }
 
   .countdown-box p {
