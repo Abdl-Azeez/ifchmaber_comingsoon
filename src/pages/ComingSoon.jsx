@@ -139,6 +139,13 @@ const ComingSoon = () => {
         <div className="countdown-container">
           <h2 className="arriving-in">Arriving in...</h2>
 
+          <div className="days-box">
+            <p className="days-number">{timeLeft.days}</p>
+            <span className="days-label">Days</span>
+            <hr />
+            <p className="date-info">1st Ramadan, 1445 | 1st March, 2025</p>
+          </div>
+
           <div className="countdown-boxes">
             {["hours", "minutes", "seconds"].map((unit) => (
               <div className="countdown-box" key={unit}>
@@ -147,13 +154,6 @@ const ComingSoon = () => {
                 <span>{unitLabels[unit]}</span>
               </div>
             ))}
-          </div>
-
-          <div className="days-box">
-            <p className="days-number">{timeLeft.days}</p>
-            <span className="days-label">Days</span>
-            <hr />
-            <p className="date-info">1st Ramadan, 1445 | 1st March, 2025</p>
           </div>
         </div>
       </div>
