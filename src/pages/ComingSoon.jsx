@@ -13,7 +13,7 @@ const ComingSoon = () => {
   });
 
   useEffect(() => {
-    const targetDate = new Date("2025-03-01T00:00:00Z");
+    const targetDate = new Date("2025-03-03T00:00:00Z");
 
     const updateCountdown = () => {
       const now = new Date();
@@ -143,7 +143,7 @@ const ComingSoon = () => {
             <p className="days-number">{timeLeft.days}</p>
             <span className="days-label">Days</span>
             <hr />
-            <p className="date-info">1st Ramadan, 1445 | 1st March, 2025</p>
+            <p className="date-info">3rd Ramadan, 1445 | 3rd March, 2025</p>
           </div>
 
           <div className="countdown-boxes">
