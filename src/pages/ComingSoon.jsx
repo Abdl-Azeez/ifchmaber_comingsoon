@@ -143,7 +143,7 @@ const ComingSoon = () => {
             <p className="days-number">{timeLeft.days}</p>
             <span className="days-label">Days</span>
             <hr />
-            <p className="date-info">10th Ramadan, 1445 | 10th March, 2025</p>
+            <p className="date-info">10th Ramadan, 1446 | 10th March, 2025</p>
           </div>
 
           <div className="countdown-boxes">
